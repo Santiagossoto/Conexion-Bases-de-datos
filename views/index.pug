@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Contactos
+        link(rel="stylesheet", href="./css/style.css")
+    body
+        h1 Lista de Contactos
+        table
+            thead
+                tr
+                    th ID
+                    th Nombre
+                    th Dirección
+                    th Teléfono
+            tbody
+                each contact in contactList
+                    tr
+                        td= contact.id
+                        td
+                            a(href=`/contacto/${contact.id}`) #{contact.name}
+                        td= contact.address
+                        td= contact.phone
