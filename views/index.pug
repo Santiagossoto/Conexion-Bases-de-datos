@@ -1,22 +1,56 @@
+//- Declara el tipo de documento como HTML.
 doctype html
+
+//- Define el elemento HTML raíz.
 html
+
+    //- Define el encabezado de la página.
     head
+        //- Establece el título de la página como "Contactos".
         title Contactos
-        link(rel="stylesheet", href="./css/style.css")
+
+        //- Vincula una hoja de estilo externa ubicada en "../css/index.css".
+        link(rel="stylesheet", href="../css/index.css")
+
+    //- Define el cuerpo de la página.
     body
+
+        //- Crea un encabezado de nivel 1 (h1) con el texto "Lista de Contactos".
         h1 Lista de Contactos
+
+        //- Crea una tabla para mostrar los contactos.
         table
+
+            //- Define el encabezado de la tabla.
             thead
                 tr
+                    //- Crea una celda de encabezado con el texto "ID".
                     th ID
+
+                    //- Crea una celda de encabezado con el texto "Nombre".
                     th Nombre
+
+                    //- Crea una celda de encabezado con el texto "Dirección".
                     th Dirección
+
+                    //- Crea una celda de encabezado con el texto "Teléfono".
                     th Teléfono
+
+            //- Define el cuerpo de la tabla donde se iterará la lista de contactos.
             tbody
+
+                //- Itera sobre la lista de contactos (contactList), creando una fila para cada contacto.
                 each contact in contactList
                     tr
+                        //- Muestra el ID del contacto en una celda de la tabla.
                         td= contact.id
+
+                        //- Muestra el nombre del contacto como un enlace que apunta a la página de detalles del contacto.
                         td
                             a(href=`/contacto/${contact.id}`) #{contact.name}
+
+                        //- Muestra la dirección del contacto en una celda de la tabla.
                         td= contact.address
+
+                        //- Muestra el número de teléfono del contacto en una celda de la tabla.
                         td= contact.phone

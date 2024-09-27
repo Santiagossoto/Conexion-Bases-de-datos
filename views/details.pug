@@ -1,10 +1,59 @@
+//- Declara el tipo de documento como HTML.
 doctype html
-html
-    head
-        title= contact.name
-    body
-        h1= contact.name
-        article
-            p Name: #{contact.name}
-            p Address: #{contact.address}
-            p Phone: #{contact.phone}
+
+//- Define el elemento HTML raíz, indicando que el idioma del documento es español.
+html(lang="es")
+
+  //- Establece la codificación de caracteres del documento como UTF-8.
+  head
+    meta(charset="UTF-8")
+
+    //- Define la metaetiqueta para asegurar que el diseño de la página sea adaptativo, con un ancho inicial igual al de la pantalla.
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+
+    //- Establece el título de la página concatenando el nombre del contacto con el texto " - Detalles del Contacto".
+    title= contact.name + " - Detalles del Contacto"
+
+    //- Vincula una hoja de estilo externa ubicada en "/css/detail.css" para aplicar estilos a la página.
+    link(rel="stylesheet", href="/css/detail.css")
+
+  //- Define el inicio del cuerpo del documento.
+  body
+
+    //- Crea un encabezado en la página con un título principal "Detalles del Contacto".
+    header
+      h1 Detalles del Contacto
+
+    //- Sección principal del contenido de la página.
+    main
+
+      //- Crea un artículo con la clase "contact-card", que probablemente se use para estilizar la tarjeta de contacto.
+      article.contact-card
+
+        //- Muestra el nombre del contacto en un encabezado de segundo nivel (h2), recuperado dinámicamente de `contact.name`.
+        h2= contact.name
+
+        //- Crea un párrafo y dentro de él, un texto en negrita que dice "ID:".
+        p
+          strong ID:
+
+          //- Muestra el ID del contacto en un elemento `span`, recuperado dinámicamente de `contact.id`.
+          span= contact.id
+
+        //- Crea un párrafo con el texto en negrita "Dirección:".
+        p
+          strong Dirección:
+
+          //- Muestra la dirección del contacto en un elemento `span`, recuperado dinámicamente de `contact.address`.
+          span= contact.address
+
+        //- Crea un párrafo con el texto en negrita "Teléfono:".
+        p
+          strong Teléfono:
+
+          //- Muestra el número de teléfono del contacto en un elemento `span`, recuperado dinámicamente de `contact.phone`.
+          span= contact.phone
+
+    //- Crea un pie de página con un enlace que apunta a la ruta "/contacto", con el texto "Volver a la lista de contactos".
+    footer
+      a(href="/contacto") Volver a la lista de contactos
